@@ -53,21 +53,21 @@ pipeline {
 def installDependencies() {
     echo 'Installing all required python dependencies...'
     git poll: false, url: 'https://github.com/mtararujs/python-greetings.git'
-    sh 'ls'
-    sh 'pip install -r requirements.txt'
+    powershell 'dir'
+    powershell 'pip install -r requirements.txt'
 }
 
 def deploy(String environment, int port) {
     echo "Deployment to $environment has started."
     git poll: false, url: 'https://github.com/mtararujs/python-greetings.git'
-    sh "pm2 delete python-micro-service-$environment & set \"errorlevel=0\""
-    sh "pm2 start app.py --name python-micro-service-$environment -- --port $port"
+    powershell "pm2 delete python-micro-service-$environment & set \"errorlevel=0\""
+    powershell "pm2 start app.py --name python-micro-service-$environment -- --port $port"
     echo "Deployment to $environment has finished."
 }
 
 def runTests(String environment, String testSetName) {
     echo "Running test set \"$testSetName\" in $environment environment..."
     git poll: false, url: 'https://github.com/mtararujs/course-js-api-framework.git'
-    sh 'npm install'
-    sh "npm run $testSetName greetings_$environment"
+    powershell 'npm install'
+    powershell "npm run $testSetName greetings_$environment"
 }
