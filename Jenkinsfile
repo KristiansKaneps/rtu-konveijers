@@ -19,12 +19,12 @@ pipeline {
         }
         stage('deploy-to-staging') {
             steps {
-                deploy('staging', 7002)
+                deploy('stg', 7002)
             }
         }
         stage('tests-on-staging') {
             steps {
-                runTests('staging', 'greetings')
+                runTests('stg', 'greetings')
             }
         }
         stage('deploy-to-preprod') {
@@ -52,22 +52,22 @@ pipeline {
 
 def installDependencies() {
     echo 'Installing all required python dependencies...'
-    git poll: false, url: 'https://github.com/mtararujs/python-greetings.git'
-    powershell 'dir'
-    powershell 'pip install -r requirements.txt'
+    git branch: 'main', poll: false, url: 'https://github.com/mtararujs/python-greetings.git'
+    bat 'dir'
+    bat 'pip install -r requirements.txt'
 }
 
 def deploy(String environment, int port) {
     echo "Deployment to $environment has started."
-    git poll: false, url: 'https://github.com/mtararujs/python-greetings.git'
-    powershell "pm2 delete python-micro-service-$environment & set \"errorlevel=0\""
-    powershell "pm2 start app.py --name python-micro-service-$environment -- --port $port"
+    git branch: 'main', poll: false, url: 'https://github.com/mtararujs/python-greetings.git'
+    bat "pm2 delete python-micro-service-$environment || exit /B 0"
+    bat "pm2 start app.py --name python-micro-service-$environment -- --port $port"
     echo "Deployment to $environment has finished."
 }
 
 def runTests(String environment, String testSetName) {
     echo "Running test set \"$testSetName\" in $environment environment..."
-    git poll: false, url: 'https://github.com/mtararujs/course-js-api-framework.git'
-    powershell 'npm install'
-    powershell "npm run $testSetName greetings_$environment"
+    git branch: 'main', poll: false, url: 'https://github.com/mtararujs/course-js-api-framework.git'
+    bat 'npm install'
+    bat "npm run $testSetName greetings_$environment"
 }
