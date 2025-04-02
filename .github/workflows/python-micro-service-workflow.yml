@@ -25,6 +25,11 @@ jobs:
     runs-on: self-hosted
     needs: [deploy-to-dev]
     steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: 'mtararujs/course-js-api-framework'
+          ref: 'main'
+          fetch-depth: 1
       - uses: ./.github/actions/test
         with:
           environment: 'dev'
@@ -33,6 +38,11 @@ jobs:
     runs-on: self-hosted
     needs: [ tests-on-dev ]
     steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: 'mtararujs/python-greetings'
+          ref: 'main'
+          fetch-depth: 1
       - uses: ./.github/actions/deploy
         with:
           environment: 'stg'
@@ -41,6 +51,11 @@ jobs:
     runs-on: self-hosted
     needs: [ deploy-to-staging ]
     steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: 'mtararujs/course-js-api-framework'
+          ref: 'main'
+          fetch-depth: 1
       - uses: ./.github/actions/test
         with:
           environment: 'stg'
@@ -49,6 +64,11 @@ jobs:
     runs-on: self-hosted
     needs: [ tests-on-staging ]
     steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: 'mtararujs/python-greetings'
+          ref: 'main'
+          fetch-depth: 1
       - uses: ./.github/actions/deploy
         with:
           environment: 'preprod'
@@ -57,6 +77,11 @@ jobs:
     runs-on: self-hosted
     needs: [ deploy-to-preprod ]
     steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: 'mtararujs/course-js-api-framework'
+          ref: 'main'
+          fetch-depth: 1
       - uses: ./.github/actions/test
         with:
           environment: 'preprod'
@@ -65,6 +90,11 @@ jobs:
     runs-on: self-hosted
     needs: [ tests-on-preprod ]
     steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: 'mtararujs/python-greetings'
+          ref: 'main'
+          fetch-depth: 1
       - uses: ./.github/actions/deploy
         with:
           environment: 'prod'
@@ -73,6 +103,11 @@ jobs:
     runs-on: self-hosted
     needs: [ deploy-to-prod ]
     steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: 'mtararujs/course-js-api-framework'
+          ref: 'main'
+          fetch-depth: 1
       - uses: ./.github/actions/test
         with:
           environment: 'prod'

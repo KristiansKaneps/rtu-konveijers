@@ -13,11 +13,6 @@ runs:
     - name: Print step message
       run: echo "Running test set \"${{ inputs.test-set-name }}\" in ${{ inputs.environment }} environment..."
       shell: cmd
-    - uses: actions/checkout@v4
-      with:
-        repository: 'mtararujs/course-js-api-framework'
-        ref: 'main'
-        fetch-depth: 1
     - name: Install dependencies
       run: npm install
       shell: cmd

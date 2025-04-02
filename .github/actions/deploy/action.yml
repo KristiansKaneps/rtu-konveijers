@@ -13,11 +13,6 @@ runs:
     - name: Print step message
       run: echo "Deployment to ${{ inputs.environment }} has started."
       shell: cmd
-    - uses: actions/checkout@v4
-      with:
-        repository: 'mtararujs/python-greetings'
-        ref: 'main'
-        fetch-depth: 1
     - name: Stop instance
       run: pm2 delete python-micro-service-${{ inputs.environment }} || exit /B 0
       shell: cmd
