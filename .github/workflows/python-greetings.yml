@@ -17,6 +17,7 @@ jobs:
           repository: 'mtararujs/python-greetings'
           ref: 'main'
           fetch-depth: 1
+          path: 'app'
       - uses: actions/checkout@v4
         with:
           repository: 'KristiansKaneps/rtu-konveijers'
@@ -35,6 +36,7 @@ jobs:
           repository: 'mtararujs/python-greetings'
           ref: 'main'
           fetch-depth: 1
+          path: 'app'
       - uses: actions/checkout@v4
         with:
           repository: 'KristiansKaneps/rtu-konveijers'
@@ -56,6 +58,7 @@ jobs:
           repository: 'mtararujs/course-js-api-framework'
           ref: 'main'
           fetch-depth: 1
+          path: 'app'
       - uses: actions/checkout@v4
         with:
           repository: 'KristiansKaneps/rtu-konveijers'
@@ -77,6 +80,7 @@ jobs:
           repository: 'mtararujs/python-greetings'
           ref: 'main'
           fetch-depth: 1
+          path: 'app'
       - uses: actions/checkout@v4
         with:
           repository: 'KristiansKaneps/rtu-konveijers'
@@ -98,6 +102,7 @@ jobs:
           repository: 'mtararujs/course-js-api-framework'
           ref: 'main'
           fetch-depth: 1
+          path: 'app'
       - uses: actions/checkout@v4
         with:
           repository: 'KristiansKaneps/rtu-konveijers'
@@ -119,6 +124,7 @@ jobs:
           repository: 'mtararujs/python-greetings'
           ref: 'main'
           fetch-depth: 1
+          path: 'app'
       - uses: actions/checkout@v4
         with:
           repository: 'KristiansKaneps/rtu-konveijers'
@@ -140,6 +146,7 @@ jobs:
           repository: 'mtararujs/course-js-api-framework'
           ref: 'main'
           fetch-depth: 1
+          path: 'app'
       - uses: actions/checkout@v4
         with:
           repository: 'KristiansKaneps/rtu-konveijers'
@@ -161,6 +168,7 @@ jobs:
           repository: 'mtararujs/python-greetings'
           ref: 'main'
           fetch-depth: 1
+          path: 'app'
       - uses: actions/checkout@v4
         with:
           repository: 'KristiansKaneps/rtu-konveijers'
@@ -182,6 +190,7 @@ jobs:
           repository: 'mtararujs/course-js-api-framework'
           ref: 'main'
           fetch-depth: 1
+          path: 'app'
       - uses: actions/checkout@v4
         with:
           repository: 'KristiansKaneps/rtu-konveijers'

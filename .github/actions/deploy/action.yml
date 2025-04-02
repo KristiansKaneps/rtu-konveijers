@@ -14,9 +14,11 @@ runs:
       run: echo "Deployment to ${{ inputs.environment }} has started."
       shell: cmd
     - name: Stop instance
+      working-directory: app
       run: pm2 delete python-micro-service-${{ inputs.environment }} || exit /B 0
       shell: cmd
     - name: Deployment to ${{ inputs.environment }} environment
+      working-directory: app
       run: pm2 start app.py --name python-micro-service-${{ inputs.environment }} -- --port ${{ inputs.port }}
       shell: cmd
     - name: Print step success message

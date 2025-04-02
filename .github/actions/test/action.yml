@@ -11,11 +11,13 @@ runs:
   using: 'composite'
   steps:
     - name: Print step message
-      run: echo "Running test set \"${{ inputs.test-set-name }}\" in ${{ inputs.environment }} environment..."
+      run: echo "Running test set '${{ inputs.test-set-name }}' in ${{ inputs.environment }} environment..."
       shell: cmd
     - name: Install dependencies
+      working-directory: app
       run: npm install
       shell: cmd
     - name: Test set "${{ inputs.test-set-name }}" in ${{ inputs.environment }} environment
+      working-directory: app
       run: npm run ${{ inputs.test-set-name }} ${{ inputs.test-set-name }}_${{ inputs.environment }}
       shell: cmd
