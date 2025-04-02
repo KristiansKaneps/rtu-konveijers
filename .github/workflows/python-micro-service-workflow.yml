@@ -20,7 +20,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: 'KristiansKaneps/rtu-konveijers'
-          ref: 'main'
+          ref: 'master'
           fetch-depth: 1
           path: 'pipeline-definition'
           sparse-checkout: |
@@ -38,7 +38,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: 'KristiansKaneps/rtu-konveijers'
-          ref: 'main'
+          ref: 'master'
           fetch-depth: 1
           path: 'pipeline-definition'
           ssh-key: ${{ secrets.SSH_KEY_PATH }}
@@ -60,7 +60,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: 'KristiansKaneps/rtu-konveijers'
-          ref: 'main'
+          ref: 'master'
           fetch-depth: 1
           ssh-key: ${{ secrets.SSH_KEY_PATH }}
           path: 'pipeline-definition'
@@ -82,7 +82,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: 'KristiansKaneps/rtu-konveijers'
-          ref: 'main'
+          ref: 'master'
           fetch-depth: 1
           ssh-key: ${{ secrets.SSH_KEY_PATH }}
           path: 'pipeline-definition'
@@ -104,7 +104,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: 'KristiansKaneps/rtu-konveijers'
-          ref: 'main'
+          ref: 'master'
           fetch-depth: 1
           ssh-key: ${{ secrets.SSH_KEY_PATH }}
           path: 'pipeline-definition'
@@ -126,7 +126,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: 'KristiansKaneps/rtu-konveijers'
-          ref: 'main'
+          ref: 'master'
           fetch-depth: 1
           ssh-key: ${{ secrets.SSH_KEY_PATH }}
           path: 'pipeline-definition'
@@ -148,7 +148,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: 'KristiansKaneps/rtu-konveijers'
-          ref: 'main'
+          ref: 'master'
           fetch-depth: 1
           ssh-key: ${{ secrets.SSH_KEY_PATH }}
           path: 'pipeline-definition'
@@ -170,7 +170,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: 'KristiansKaneps/rtu-konveijers'
-          ref: 'main'
+          ref: 'master'
           fetch-depth: 1
           ssh-key: ${{ secrets.SSH_KEY_PATH }}
           path: 'pipeline-definition'
@@ -192,7 +192,7 @@ jobs:
       - uses: actions/checkout@v4
         with:
           repository: 'KristiansKaneps/rtu-konveijers'
-          ref: 'main'
+          ref: 'master'
           fetch-depth: 1
           ssh-key: ${{ secrets.SSH_KEY_PATH }}
           path: 'pipeline-definition'
