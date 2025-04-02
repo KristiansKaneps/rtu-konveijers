@@ -12,11 +12,21 @@ jobs:
   install-pip-deps:
     runs-on: self-hosted
     steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: 'mtararujs/python-greetings'
+          ref: 'main'
+          fetch-depth: 1
       - uses: ./.github/actions/install-deps
   deploy-to-dev:
     runs-on: self-hosted
     needs: [install-pip-deps]
     steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: 'mtararujs/python-greetings'
+          ref: 'main'
+          fetch-depth: 1
       - uses: ./.github/actions/deploy
         with:
           environment: 'dev'

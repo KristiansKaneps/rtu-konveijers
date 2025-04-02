@@ -3,11 +3,6 @@ description: 'Installs all required dependencies'
 runs:
   using: 'composite'
   steps:
-    - uses: actions/checkout@v4
-      with:
-        repository: 'mtararujs/python-greetings'
-        ref: 'main'
-        fetch-depth: 1
     - name: Print step name
       run: echo "Installing all required python dependencies..."
       shell: cmd
