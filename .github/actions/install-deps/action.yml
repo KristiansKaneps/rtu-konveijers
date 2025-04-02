@@ -5,8 +5,9 @@ runs:
   steps:
     - uses: actions/checkout@v4
       with:
-        repository: 'https://github.com/mtararujs/python-greetings.git'
+        repository: 'mtararujs/python-greetings'
         ref: 'main'
+        fetch-depth: 1
     - name: Print step name
       run: echo "Installing all required python dependencies..."
       shell: cmd

@@ -15,8 +15,9 @@ runs:
       shell: cmd
     - uses: actions/checkout@v4
       with:
-        repository: 'https://github.com/mtararujs/course-js-api-framework.git'
+        repository: 'mtararujs/course-js-api-framework'
         ref: 'main'
+        fetch-depth: 1
     - name: Install dependencies
       run: npm install
       shell: cmd
