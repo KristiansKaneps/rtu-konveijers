@@ -69,5 +69,5 @@ def runTests(String environment, String testSetName) {
     echo "Running test set \"$testSetName\" in $environment environment..."
     git branch: 'main', poll: false, url: 'https://github.com/mtararujs/course-js-api-framework.git'
     bat 'npm install'
-    bat "npm run $testSetName greetings_$environment"
+    bat "npm run $testSetName ${testSetName}_${environment}"
 }
