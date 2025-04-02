@@ -41,7 +41,6 @@ jobs:
           ref: 'master'
           fetch-depth: 1
           path: 'pipeline-definition'
-          ssh-key: ${{ secrets.SSH_KEY_PATH }}
           sparse-checkout: |
             .github
       - uses: ./pipeline-definition/.github/actions/deploy
@@ -62,7 +61,6 @@ jobs:
           repository: 'KristiansKaneps/rtu-konveijers'
           ref: 'master'
           fetch-depth: 1
-          ssh-key: ${{ secrets.SSH_KEY_PATH }}
           path: 'pipeline-definition'
           sparse-checkout: |
             .github
@@ -84,7 +82,6 @@ jobs:
           repository: 'KristiansKaneps/rtu-konveijers'
           ref: 'master'
           fetch-depth: 1
-          ssh-key: ${{ secrets.SSH_KEY_PATH }}
           path: 'pipeline-definition'
           sparse-checkout: |
             .github
@@ -106,7 +103,6 @@ jobs:
           repository: 'KristiansKaneps/rtu-konveijers'
           ref: 'master'
           fetch-depth: 1
-          ssh-key: ${{ secrets.SSH_KEY_PATH }}
           path: 'pipeline-definition'
           sparse-checkout: |
             .github
@@ -128,7 +124,6 @@ jobs:
           repository: 'KristiansKaneps/rtu-konveijers'
           ref: 'master'
           fetch-depth: 1
-          ssh-key: ${{ secrets.SSH_KEY_PATH }}
           path: 'pipeline-definition'
           sparse-checkout: |
             .github
@@ -150,7 +145,6 @@ jobs:
           repository: 'KristiansKaneps/rtu-konveijers'
           ref: 'master'
           fetch-depth: 1
-          ssh-key: ${{ secrets.SSH_KEY_PATH }}
           path: 'pipeline-definition'
           sparse-checkout: |
             .github
@@ -172,7 +166,6 @@ jobs:
           repository: 'KristiansKaneps/rtu-konveijers'
           ref: 'master'
           fetch-depth: 1
-          ssh-key: ${{ secrets.SSH_KEY_PATH }}
           path: 'pipeline-definition'
           sparse-checkout: |
             .github
@@ -194,7 +187,6 @@ jobs:
           repository: 'KristiansKaneps/rtu-konveijers'
           ref: 'master'
           fetch-depth: 1
-          ssh-key: ${{ secrets.SSH_KEY_PATH }}
           path: 'pipeline-definition'
           sparse-checkout: |
             .github
