@@ -17,7 +17,15 @@ jobs:
           repository: 'mtararujs/python-greetings'
           ref: 'main'
           fetch-depth: 1
-      - uses: ./.github/actions/install-deps
+      - uses: actions/checkout@v4
+        with:
+          repository: 'KristiansKaneps/rtu-konveijers'
+          ref: 'main'
+          fetch-depth: 1
+          path: 'pipeline-definition'
+          sparse-checkout: |
+            .github
+      - uses: ./pipeline-definition/.github/actions/install-deps
   deploy-to-dev:
     runs-on: self-hosted
     needs: [install-pip-deps]
@@ -27,7 +35,16 @@ jobs:
           repository: 'mtararujs/python-greetings'
           ref: 'main'
           fetch-depth: 1
-      - uses: ./.github/actions/deploy
+      - uses: actions/checkout@v4
+        with:
+          repository: 'KristiansKaneps/rtu-konveijers'
+          ref: 'main'
+          fetch-depth: 1
+          path: 'pipeline-definition'
+          ssh-key: ${{ secrets.SSH_KEY_PATH }}
+          sparse-checkout: |
+            .github
+      - uses: ./pipeline-definition/.github/actions/deploy
         with:
           environment: 'dev'
           port: '7001'
@@ -40,7 +57,16 @@ jobs:
           repository: 'mtararujs/course-js-api-framework'
           ref: 'main'
           fetch-depth: 1
-      - uses: ./.github/actions/test
+      - uses: actions/checkout@v4
+        with:
+          repository: 'KristiansKaneps/rtu-konveijers'
+          ref: 'main'
+          fetch-depth: 1
+          ssh-key: ${{ secrets.SSH_KEY_PATH }}
+          path: 'pipeline-definition'
+          sparse-checkout: |
+            .github
+      - uses: ./pipeline-definition/.github/actions/test
         with:
           environment: 'dev'
           test-set-name: 'greetings'
@@ -53,7 +79,16 @@ jobs:
           repository: 'mtararujs/python-greetings'
           ref: 'main'
           fetch-depth: 1
-      - uses: ./.github/actions/deploy
+      - uses: actions/checkout@v4
+        with:
+          repository: 'KristiansKaneps/rtu-konveijers'
+          ref: 'main'
+          fetch-depth: 1
+          ssh-key: ${{ secrets.SSH_KEY_PATH }}
+          path: 'pipeline-definition'
+          sparse-checkout: |
+            .github
+      - uses: ./pipeline-definition/.github/actions/deploy
         with:
           environment: 'stg'
           port: '7002'
@@ -66,7 +101,16 @@ jobs:
           repository: 'mtararujs/course-js-api-framework'
           ref: 'main'
           fetch-depth: 1
-      - uses: ./.github/actions/test
+      - uses: actions/checkout@v4
+        with:
+          repository: 'KristiansKaneps/rtu-konveijers'
+          ref: 'main'
+          fetch-depth: 1
+          ssh-key: ${{ secrets.SSH_KEY_PATH }}
+          path: 'pipeline-definition'
+          sparse-checkout: |
+            .github
+      - uses: ./pipeline-definition/.github/actions/test
         with:
           environment: 'stg'
           test-set-name: 'greetings'
@@ -79,7 +123,16 @@ jobs:
           repository: 'mtararujs/python-greetings'
           ref: 'main'
           fetch-depth: 1
-      - uses: ./.github/actions/deploy
+      - uses: actions/checkout@v4
+        with:
+          repository: 'KristiansKaneps/rtu-konveijers'
+          ref: 'main'
+          fetch-depth: 1
+          ssh-key: ${{ secrets.SSH_KEY_PATH }}
+          path: 'pipeline-definition'
+          sparse-checkout: |
+            .github
+      - uses: ./pipeline-definition/.github/actions/deploy
         with:
           environment: 'preprod'
           port: '7003'
@@ -92,7 +145,16 @@ jobs:
           repository: 'mtararujs/course-js-api-framework'
           ref: 'main'
           fetch-depth: 1
-      - uses: ./.github/actions/test
+      - uses: actions/checkout@v4
+        with:
+          repository: 'KristiansKaneps/rtu-konveijers'
+          ref: 'main'
+          fetch-depth: 1
+          ssh-key: ${{ secrets.SSH_KEY_PATH }}
+          path: 'pipeline-definition'
+          sparse-checkout: |
+            .github
+      - uses: ./pipeline-definition/.github/actions/test
         with:
           environment: 'preprod'
           test-set-name: 'greetings'
@@ -105,7 +167,16 @@ jobs:
           repository: 'mtararujs/python-greetings'
           ref: 'main'
           fetch-depth: 1
-      - uses: ./.github/actions/deploy
+      - uses: actions/checkout@v4
+        with:
+          repository: 'KristiansKaneps/rtu-konveijers'
+          ref: 'main'
+          fetch-depth: 1
+          ssh-key: ${{ secrets.SSH_KEY_PATH }}
+          path: 'pipeline-definition'
+          sparse-checkout: |
+            .github
+      - uses: ./pipeline-definition/.github/actions/deploy
         with:
           environment: 'prod'
           port: '7004'
@@ -118,7 +189,16 @@ jobs:
           repository: 'mtararujs/course-js-api-framework'
           ref: 'main'
           fetch-depth: 1
-      - uses: ./.github/actions/test
+      - uses: actions/checkout@v4
+        with:
+          repository: 'KristiansKaneps/rtu-konveijers'
+          ref: 'main'
+          fetch-depth: 1
+          ssh-key: ${{ secrets.SSH_KEY_PATH }}
+          path: 'pipeline-definition'
+          sparse-checkout: |
+            .github
+      - uses: ./pipeline-definition/.github/actions/test
         with:
           environment: 'prod'
           test-set-name: 'greetings'
