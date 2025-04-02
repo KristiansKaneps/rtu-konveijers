@@ -1,0 +1,28 @@
+name: 'Deploy micro-service'
+description: 'Deploys python micro-service using pm2'
+inputs:
+  environment:
+    description: 'Environment where to deploy instance'
+    required: true
+  port:
+    description: 'Port on which to deploy instance'
+    required: true
+runs:
+  using: 'composite'
+  steps:
+    - name: Print step message
+      run: echo "Deployment to ${{ inputs.environment }} has started."
+      shell: cmd
+    - uses: actions/checkout@v4
+      with:
+        repository: 'https://github.com/mtararujs/python-greetings.git'
+        ref: 'main'
+    - name: Stop instance
+      run: pm2 delete python-micro-service-${{ inputs.environment }} || exit /B 0
+      shell: cmd
+    - name: Deployment to ${{ inputs.environment }} environment
+      run: pm2 start app.py --name python-micro-service-${{ inputs.environment }} -- --port ${{ inputs.port }}
+      shell: cmd
+    - name: Print step success message
+      run: echo "Deployment to ${{ inputs.environment }} has finished."
+      shell: cmd

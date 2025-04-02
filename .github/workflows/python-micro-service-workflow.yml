@@ -1,0 +1,79 @@
+name: 'Python micro-service workflow'
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+  workflow_dispatch:
+
+jobs:
+  install-pip-deps:
+    runs-on: self-hosted
+    steps:
+      - uses: ./.github/actions/install-deps
+  deploy-to-dev:
+    runs-on: self-hosted
+    needs: [install-pip-deps]
+    steps:
+      - uses: ./.github/actions/deploy
+        with:
+          environment: 'dev'
+          port: '7001'
+  tests-on-dev:
+    runs-on: self-hosted
+    needs: [deploy-to-dev]
+    steps:
+      - uses: ./.github/actions/test
+        with:
+          environment: 'dev'
+          test-set-name: 'greetings'
+  deploy-to-staging:
+    runs-on: self-hosted
+    needs: [ tests-on-dev ]
+    steps:
+      - uses: ./.github/actions/deploy
+        with:
+          environment: 'stg'
+          port: '7002'
+  tests-on-staging:
+    runs-on: self-hosted
+    needs: [ deploy-to-staging ]
+    steps:
+      - uses: ./.github/actions/test
+        with:
+          environment: 'stg'
+          test-set-name: 'greetings'
+  deploy-to-preprod:
+    runs-on: self-hosted
+    needs: [ tests-on-staging ]
+    steps:
+      - uses: ./.github/actions/deploy
+        with:
+          environment: 'preprod'
+          port: '7003'
+  tests-on-preprod:
+    runs-on: self-hosted
+    needs: [ deploy-to-preprod ]
+    steps:
+      - uses: ./.github/actions/test
+        with:
+          environment: 'preprod'
+          test-set-name: 'greetings'
+  deploy-to-prod:
+    runs-on: self-hosted
+    needs: [ tests-on-preprod ]
+    steps:
+      - uses: ./.github/actions/deploy
+        with:
+          environment: 'prod'
+          port: '7004'
+  tests-on-prod:
+    runs-on: self-hosted
+    needs: [ deploy-to-prod ]
+    steps:
+      - uses: ./.github/actions/test
+        with:
+          environment: 'prod'
+          test-set-name: 'greetings'

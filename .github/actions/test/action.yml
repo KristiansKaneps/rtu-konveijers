@@ -1,0 +1,25 @@
+name: 'Run tests'
+description: 'Runs test set in an environment'
+inputs:
+  environment:
+    description: 'Environment in which to run tests'
+    required: true
+  test-set-name:
+    description: 'Test set name'
+    required: true
+runs:
+  using: 'composite'
+  steps:
+    - name: Print step message
+      run: echo "Running test set \"${{ inputs.test-set-name }}\" in ${{ inputs.environment }} environment..."
+      shell: cmd
+    - uses: actions/checkout@v4
+      with:
+        repository: 'https://github.com/mtararujs/course-js-api-framework.git'
+        ref: 'main'
+    - name: Install dependencies
+      run: npm install
+      shell: cmd
+    - name: Test set "${{ inputs.test-set-name }}" in ${{ inputs.environment }} environment
+      run: npm run ${{ inputs.test-set-name }} ${{ inputs.test-set-name }}_${{ inputs.environment }}
+      shell: cmd

@@ -1,0 +1,18 @@
+name: 'Install dependencies'
+description: 'Installs all required dependencies'
+runs:
+  using: 'composite'
+  steps:
+    - uses: actions/checkout@v4
+      with:
+        repository: 'https://github.com/mtararujs/python-greetings.git'
+        ref: 'main'
+    - name: Print step name
+      run: echo "Installing all required python dependencies..."
+      shell: cmd
+    - name: List directory items
+      run: dir
+      shell: cmd
+    - name: Install dependencies
+      run: pip install -r requirements.txt
+      shell: cmd
